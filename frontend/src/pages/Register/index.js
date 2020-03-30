@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
 
 import './styles.css';
@@ -12,6 +12,8 @@ export default function Register() {
     const [whatsapp, setWhatsapp] = useState('');
     const [city, setCity] = useState('');
     const [uf, setUF] = useState('');
+
+    const history = useHistory();
 
     async function handleRegister(e){
         e.preventDefault();
@@ -28,6 +30,8 @@ export default function Register() {
             const response = await api.post('ongs', data);
 
             alert(`Seu cadastro realizado com sucesso! Seu ID de acesso é: ${response.data.id}`);
+
+            history.push('/');
         }
         catch (err){
             alert('Erro no cadastro, tente novamente.');
