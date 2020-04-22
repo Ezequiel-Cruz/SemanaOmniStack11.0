@@ -18,13 +18,13 @@ export default function Detail() {
     function sendMail(){
         MailComposer.composeAsync({
             subject: 'Herói do caso: Cadelinha atropelada',
-            recipients: ['@gmail.com'],
+            recipients: ['..@gmail.com'],
             body: message,
         });
     }
 
     function sendWhatsApp(){
-        Linking.openURL(`whatsapp://send?phone=55219999999999&text=${message}`);
+        Linking.openURL(`whatsapp://send?phone=5521999999999&text=${message}`);
     }
 
     return(
